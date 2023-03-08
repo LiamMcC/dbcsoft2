@@ -8,16 +8,15 @@ var bodyParser = require("body-parser") // call body parser module and make use 
 app.use(bodyParser.urlencoded({extended:true}));
 
 var Cars = require("./classes/cars.js");
+var Company = require("./classes/company.js");
 
 
 // function to render the home page
 app.get('/', function(req, res){
-
-
-    var youDrive = new Cars("Nissan", "Skyline");
-        var xxx = youDrive.whatCar()
-              
-        res.render("home", {xxx}); 
+        var info = new Company("Liams Cars", "Dunboyne Co. Meath", "01-1234567")
+        var allData = info.companyData()
+   
+        res.render("home", {allData}); 
 
 });
 
